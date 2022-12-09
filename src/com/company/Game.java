@@ -3,11 +3,25 @@ package com.company;
 import com.company.days.DayManager;
 import com.company.entities.Player;
 
+/**
+ * Třída Game spravuje herní postup
+ * @author Kristýna Bártová
+ * @since Java 16
+ * @version 0.1a
+ */
 public class Game {
-
+    /**
+     * Název Hry
+     */
     private final String name = "Kindergarten - SPSMB DLC";
+    /**
+     * Verze hry
+     */
     private final double version = 0.2;
-    private final String author = "Honzik";
+    /**
+     * Jméno autora
+     */
+    private final String author = "Kristyna";
     private GameDif gameDif;
     private GameDialog gameDialog;
     private DayManager dayManager;
@@ -19,12 +33,19 @@ public class Game {
         player = new Player();
     }
 
+    /**
+     * Spustí hru
+     * @throws Exception
+     */
     public void start() throws Exception {
         gameDialog.intro(name, version, author);
         introMenu();
         dayManager.startDay();
     }
 
+    /**
+     * Uvede hráče do hry
+     */
     private void introMenu() {
         gameDialog.say("Vítejte v kůži Tomáše Ďurána, který chodí na Střední průmyslovou školu do Mladé Boleslavi, kde se ztratila Kája společně s virtuální realitou.\nNaposledy byla viděna včera ve škole na poslední hodině programování. I přesto jste dostali ředitelské volno  a tak se vydáváte do školy.");
         gameDialog.say("Zvol si obtížnost:", "red");
@@ -35,6 +56,9 @@ public class Game {
         storyIntro();
     }
 
+    /**
+     * Výběr možností
+     */
     public void selectDif() {
         String userInput = gameDialog.userInput();
         boolean check = false;
@@ -50,6 +74,9 @@ public class Game {
         }
     }
 
+    /**
+     * Uvede hráče do příběhu
+     */
     private void storyIntro() {
         gameDialog.say("Vybrána obtížnost " + gameDif, "red");
         gameDialog.say("------------------------------------------------", "white");

@@ -5,6 +5,12 @@ import com.company.items.Food;
 import com.company.items.Potion;
 import com.company.map.GameLocation;
 
+/**
+ * Podtřída pro hráče.
+ * @author Kristýna Bártová
+ * @version 0.1a
+ * @since Java 16
+ */
 public class Player implements Entity {
 
     private final String name = "Tomas Duran";
